@@ -1,0 +1,13 @@
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = import.meta.env.VITE_PROJECT_URL
+const supabaseAnonKey = import.meta.env.VITE_ANON_KEY
+
+const supabase = createClient(supabaseUrl, supabaseAnonKey,{
+    auth: {
+    persistSession: true,
+    autoRefreshToken: true,
+    detectSessionInUrl: true,
+  },
+  })
+export default supabase

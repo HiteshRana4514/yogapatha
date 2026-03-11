@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+/* Blog Content Styles - Applied to both editor and display */
+[contenteditable] h1,
+.prose h1 {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0.67em 0;
+  color: #336b6e;
+}
+
+[contenteditable] h2,
+.prose h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0.75em 0;
+  color: #336b6e;
+  border-bottom: 2px solid #bb9f58;
+  padding-bottom: 0.3em;
+}
+
+[contenteditable] h3,
+.prose h3 {
+  font-size: 1.17em;
+  font-weight: bold;
+  margin: 1em 0;
+  color: #336b6e;
+}
+
+[contenteditable] h4,
+.prose h4 {
+  font-size: 1em;
+  font-weight: bold;
+  margin: 1.33em 0;
+  color: #336b6e;
+}
+
+[contenteditable] p,
+.prose p {
+  margin: 1em 0;
+  line-height: 1.8;
+  color: #336b6e;
+}
+
+[contenteditable] strong,
+.prose strong {
+  font-weight: bold;
+  color: #336b6e;
+}
+
+[contenteditable] em,
+.prose em {
+  font-style: italic;
+}
+
+[contenteditable] ul,
+.prose ul {
+  list-style-type: disc;
+  margin: 1em 0;
+  padding-left: 2em;
+}
+
+[contenteditable] ol,
+.prose ol {
+  list-style-type: decimal;
+  margin: 1em 0;
+  padding-left: 2em;
+}
+
+[contenteditable] li,
+.prose li {
+  margin: 0.5em 0;
+  line-height: 1.6;
+  color: #336b6e;
+}
+
+[contenteditable] a,
+.prose a {
+  color: #bb9f58;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+[contenteditable] a:hover,
+.prose a:hover {
+  color: #336b6e;
+}
+
+[contenteditable] blockquote,
+.prose blockquote {
+  border-left: 4px solid #bb9f58;
+  padding-left: 1em;
+  margin: 1em 0;
+  font-style: italic;
+  color: #336b6e;
+  opacity: 0.8;
+}
+
+[contenteditable] code,
+.prose code {
+  background-color: #fdfcf3;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: monospace;
+  font-size: 0.9em;
+  color: #336b6e;
+}
+
+[contenteditable] pre,
+.prose pre {
+  background-color: #fdfcf3;
+  padding: 1em;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin: 1em 0;
+}
+
+[contenteditable] pre code,
+.prose pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+[contenteditable] hr,
+.prose hr {
+  border: none;
+  border-top: 2px solid #336b6e;
+  opacity: 0.2;
+  margin: 2em 0;
+}
+
+/* Additional prose styling for better readability */
+.prose {
+  color: #336b6e;
+}
+
+.prose > :first-child {
+  margin-top: 0;
+}
+
+.prose > :last-child {
+  margin-bottom: 0;
+}
+
+/* Admin Sidebar Custom Scrollbar */
+.admin-sidebar-nav {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.admin-sidebar-nav::-webkit-scrollbar {
+  width: 5px;
+}
+
+.admin-sidebar-nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.admin-sidebar-nav::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.admin-sidebar-nav::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
