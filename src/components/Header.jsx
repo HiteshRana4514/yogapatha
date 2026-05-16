@@ -14,7 +14,7 @@ function Header() {
         <div className='w-screen max-w-[1250px] p-2 mx-auto flex items-center justify-between gap-2'>
           {/* Logo */}
           <div className='w-[138px] h-[60px]'>
-            <img className='block w-[100%] h-[100%]' src="/logo.png" alt="logo" />
+            <img className='block w-[100%] h-[100%]' src="/logo.png" alt="YogaPatha - Certified Yoga Trainers India" />
           </div>
 
           {/* Desktop Navigation */}

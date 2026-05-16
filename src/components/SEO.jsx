@@ -1,72 +1,59 @@
-import { useEffect } from 'react'
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
-function SEO({ 
-  title, 
-  description, 
-  keywords = '', 
-  ogImage = 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+const SEO = ({
+  title,
+  description,
+  keywords = '',
+  canonicalUrl = '',
   ogType = 'website',
-  canonicalUrl = ''
-}) {
-  useEffect(() => {
-    // Set document title
-    document.title = title
+  ogImage = '/favicon2.png',
+  twitterHandle = '@YogaPatha',
+  author = 'YogaPatha',
+  robots = 'index, follow',
+  themeColor = '#336b6e',
+  schemaData = null,
+}) => {
+  const brandName = 'YogaPatha';
+  const fullTitle = title ? `${title} | ${brandName}` : brandName;
+  const siteUrl = 'https://www.yogapatha.in/';
+  const currentUrl = canonicalUrl || (typeof window !== 'undefined' ? window.location.href : siteUrl);
 
-    // Helper function to set or update meta tags
-    const setMetaTag = (name, content, isProperty = false) => {
-      if (!content) return
+  return (
+    <Helmet>
+      {/* Standard Meta Tags */}
+      <title>{fullTitle}</title>
+      <meta name="description" content={description} />
+      {keywords && <meta name="keywords" content={keywords} />}
+      <meta name="author" content={author} />
+      <meta name="robots" content={robots} />
+      <meta name="theme-color" content={themeColor} />
+      <link rel="canonical" href={currentUrl} />
 
-      const attribute = isProperty ? 'property' : 'name'
-      let element = document.querySelector(`meta[${attribute}="${name}"]`)
-      
-      if (!element) {
-        element = document.createElement('meta')
-        element.setAttribute(attribute, name)
-        document.head.appendChild(element)
-      }
-      
-      element.setAttribute('content', content)
-    }
+      {/* Open Graph Tags */}
+      <meta property="og:site_name" content={brandName} />
+      <meta property="og:title" content={fullTitle} />
+      <meta property="og:description" content={description} />
+      <meta property="og:type" content={ogType} />
+      <meta property="og:url" content={currentUrl} />
+      <meta property="og:image" content={ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`} />
 
-    // Set standard meta tags
-    setMetaTag('description', description)
-    if (keywords) {
-      setMetaTag('keywords', keywords)
-    }
+      {/* Twitter Card Tags */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content={twitterHandle} />
+      <meta name="twitter:creator" content={twitterHandle} />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`} />
 
-    // Set Open Graph tags
-    setMetaTag('og:title', title, true)
-    setMetaTag('og:description', description, true)
-    setMetaTag('og:type', ogType, true)
-    setMetaTag('og:image', ogImage, true)
-    
-    if (canonicalUrl) {
-      setMetaTag('og:url', canonicalUrl, true)
-      
-      // Set canonical link
-      let canonical = document.querySelector('link[rel="canonical"]')
-      if (!canonical) {
-        canonical = document.createElement('link')
-        canonical.setAttribute('rel', 'canonical')
-        document.head.appendChild(canonical)
-      }
-      canonical.setAttribute('href', canonicalUrl)
-    }
+      {/* Structured Data (JSON-LD) */}
+      {schemaData && (
+        <script type="application/ld+json">
+          {JSON.stringify(schemaData)}
+        </script>
+      )}
+    </Helmet>
+  );
+};
 
-    // Set Twitter Card tags
-    setMetaTag('twitter:card', 'summary_large_image')
-    setMetaTag('twitter:title', title)
-    setMetaTag('twitter:description', description)
-    setMetaTag('twitter:image', ogImage)
-
-    // Set additional SEO tags
-    setMetaTag('robots', 'index, follow')
-    setMetaTag('author', 'YogaPatha')
-    setMetaTag('viewport', 'width=device-width, initial-scale=1.0')
-
-  }, [title, description, keywords, ogImage, ogType, canonicalUrl])
-
-  return null // This component doesn't render anything
-}
-
-export default SEO
+export default SEO;

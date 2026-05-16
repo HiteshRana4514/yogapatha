@@ -14,6 +14,8 @@ import PageLoader from '../components/PageLoader'
 import BookingModal from '../components/BookingModal'
 import TestimonialSection from '../components/TestimonialSection'
 import supabase from '../supabase/supabse'
+import SEO from '../components/SEO'
+import { getOrganizationSchema, getWebsiteSchema } from '../utils/SchemaUtils'
 
 // Create a context to track loading states
 export const LoadingContext = createContext()
@@ -79,6 +81,13 @@ function LandingPage() {
 
   return (
     <>
+      <SEO
+        title="Find Certified Yoga Trainers Across India | Online & Home Yoga"
+        description="Connect with professional yoga trainers in India for weight loss, stress management, prenatal yoga, and therapy. Book certified personal trainers for online or home sessions."
+        keywords="certified yoga trainers in India, online yoga classes, personal yoga trainer, yoga trainers near me, home yoga sessions, yoga for weight loss, meditation yoga classes, prenatal yoga trainer, therapy yoga sessions, best yoga platform India, hire yoga instructor online"
+        canonicalUrl="https://www.yogapatha.in/"
+        schemaData={[getOrganizationSchema(), getWebsiteSchema()]}
+      />
       {isPageLoading && <PageLoader />}
 
       <LoadingContext.Provider value={{ updateLoadingState }}>
