@@ -23,6 +23,17 @@ function ServiceDetailPage() {
     fetchServiceDetail()
   }, [serviceId])
 
+  useEffect(() => {
+    if (!isLoading && service) {
+      // Notify prerenderer that dynamic content is ready
+      const timer = setTimeout(() => {
+        window.prerenderReady = true;
+        window.dispatchEvent(new Event('render-event'));
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [isLoading, service]);
+
   const fetchServiceDetail = async () => {
     try {
       const { data, error } = await supabase

@@ -38,6 +38,17 @@ const PublicTrainerProfile = () => {
     fetchTrainerProfile();
   }, [trainerId]);
 
+  useEffect(() => {
+    if (!loading && trainer) {
+      // Notify prerenderer that dynamic content is ready
+      const timer = setTimeout(() => {
+        window.prerenderReady = true;
+        window.dispatchEvent(new Event('render-event'));
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [loading, trainer]);
+
   const fetchTrainerProfile = async () => {
     try {
       setLoading(true);

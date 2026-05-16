@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react'
 import './App.css'
 import LandingPage from './pages/LandingPage'
 import ServicesPage from './pages/ServicesPage'
@@ -63,6 +64,16 @@ import ScrollToTop from './components/ScrollToTop'
 import NotFound from './pages/NotFound'
 
 function App() {
+  useEffect(() => {
+    // Safety fallback for prerenderer - only fires if pages don't signal readiness
+    const timer = setTimeout(() => {
+      if (!window.prerenderReady) {
+        window.prerenderReady = true;
+        window.dispatchEvent(new Event('render-event'));
+      }
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>

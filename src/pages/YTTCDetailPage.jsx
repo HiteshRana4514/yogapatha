@@ -22,6 +22,17 @@ function YTTCDetailPage() {
         fetchCourseDetail()
     }, [slug])
 
+    useEffect(() => {
+        if (!isLoading && course) {
+            // Notify prerenderer that dynamic content is ready
+            const timer = setTimeout(() => {
+                window.prerenderReady = true;
+                window.dispatchEvent(new Event('render-event'));
+            }, 500);
+            return () => clearTimeout(timer);
+        }
+    }, [isLoading, course]);
+
     const fetchCourseDetail = async () => {
         try {
             const { data, error } = await supabase

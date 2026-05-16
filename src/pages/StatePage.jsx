@@ -30,6 +30,12 @@ function StatePage() {
     setIsVisible(true)
     setLoading(false)
     window.scrollTo(0, 0)
+
+    // Notify prerenderer that dynamic content is ready
+    const timer = setTimeout(() => {
+      window.prerenderReady = true;
+      window.dispatchEvent(new Event('render-event'));
+    }, 500);
   }
 
   const siteUrl = 'https://www.yogapatha.in'

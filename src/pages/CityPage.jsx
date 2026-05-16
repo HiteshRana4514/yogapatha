@@ -39,6 +39,17 @@ function CityPage() {
     loadServices()
   }, [stateSlug, citySlug])
 
+  useEffect(() => {
+    if (!loading && city && !servicesLoading) {
+      // Notify prerenderer that dynamic content is ready
+      const timer = setTimeout(() => {
+        window.prerenderReady = true;
+        window.dispatchEvent(new Event('render-event'));
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [loading, city, servicesLoading]);
+
   const loadCity = async () => {
     setLoading(true)
     const states = await fetchIndianStates()

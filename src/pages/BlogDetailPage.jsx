@@ -29,6 +29,17 @@ const BlogDetailPage = () => {
     fetchBlog();
   }, [slug]);
 
+  useEffect(() => {
+    if (!loading && blog) {
+      // Notify prerenderer that dynamic content is ready
+      const timer = setTimeout(() => {
+        window.prerenderReady = true;
+        window.dispatchEvent(new Event('render-event'));
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [loading, blog]);
+
   const fetchBlog = async () => {
     try {
       setLoading(true);
