@@ -15,9 +15,11 @@ import {
     AlertCircle,
     Navigation,
     Heart,
-    Type
+    Type,
+    Upload
 } from 'lucide-react'
 import supabase from '../../src/supabase/supabse'
+import { uploadToCloudinary } from '../../src/utils/cloudinary'
 
 function ContactUsCMS() {
     const [activeSection, setActiveSection] = useState('hero')
@@ -25,6 +27,8 @@ function ContactUsCMS() {
     const [saving, setSaving] = useState(false)
     const [content, setContent] = useState({})
     const [status, setStatus] = useState({ type: '', message: '' })
+    const [uploadProgress, setUploadProgress] = useState(0)
+    const [uploadingImageIdx, setUploadingImageIdx] = useState(null)
 
     const sections = [
         { id: 'hero', label: 'Hero Section', icon: Layout },
@@ -85,6 +89,27 @@ function ContactUsCMS() {
         updatedArray[index] = { ...updatedArray[index], [subfield]: value }
         handleInputChange(section, field, updatedArray)
     }
+
+    const handleLocationImageUpload = async (index, file) => {
+        if (!file) return;
+        setUploadingImageIdx(index);
+        setUploadProgress(0);
+        setStatus({ type: '', message: '' });
+
+        try {
+            const url = await uploadToCloudinary(file, 'locations', (progress) => {
+                setUploadProgress(progress);
+            });
+            handleArrayChange('locations', index, 'image', url);
+            setStatus({ type: 'success', message: 'Image uploaded successfully!' });
+        } catch (error) {
+            console.error('Error uploading image:', error);
+            setStatus({ type: 'error', message: 'Failed to upload image' });
+        } finally {
+            setUploadingImageIdx(null);
+            setUploadProgress(0);
+        }
+    };
 
     const addLocation = () => {
         const newLocation = {
@@ -628,12 +653,36 @@ function ContactUsCMS() {
                                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                     <div className="space-y-1">
                                                         <label className="text-xs font-semibold text-gray-500">Image URL</label>
-                                                        <input
-                                                            type="text"
-                                                            value={loc.image}
-                                                            onChange={(e) => handleArrayChange('locations', idx, 'image', e.target.value)}
-                                                            className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm truncate"
-                                                        />
+                                                        <div className="flex gap-2 items-center">
+                                                            <input
+                                                                type="text"
+                                                                value={loc.image}
+                                                                onChange={(e) => handleArrayChange('locations', idx, 'image', e.target.value)}
+                                                                className="flex-1 px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm truncate"
+                                                                placeholder="Upload or paste image URL"
+                                                            />
+                                                            <div className="relative">
+                                                                <input
+                                                                    type="file"
+                                                                    accept="image/*"
+                                                                    onChange={(e) => handleLocationImageUpload(idx, e.target.files[0])}
+                                                                    disabled={uploadingImageIdx === idx}
+                                                                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer disabled:cursor-not-allowed"
+                                                                    title="Upload Image"
+                                                                />
+                                                                <button
+                                                                    type="button"
+                                                                    disabled={uploadingImageIdx === idx}
+                                                                    className="px-3 py-2 bg-[#336b6e] text-white rounded-lg flex items-center justify-center disabled:opacity-50 transition-colors hover:bg-[#2a5557]"
+                                                                >
+                                                                    {uploadingImageIdx === idx ? (
+                                                                        <span className="text-xs font-bold w-5 text-center">{uploadProgress}%</span>
+                                                                    ) : (
+                                                                        <Upload className="w-5 h-5" />
+                                                                    )}
+                                                                </button>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div className="space-y-1">
                                                         <label className="text-xs font-semibold text-gray-500">Features (Comma separated)</label>

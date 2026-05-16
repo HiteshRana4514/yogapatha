@@ -803,15 +803,15 @@ function TrainerAuthPage() {
                     />
                     <span className="text-[#336b6e] text-sm leading-relaxed">
                       I agree to the{' '}
-                      <a href="#" className="text-[#bb9f58] hover:text-[#a08a4a] font-semibold">
+                      <a href="/terms-and-conditions" target="_blank" rel="noopener noreferrer" className="text-[#bb9f58] hover:text-[#a08a4a] font-semibold">
                         Terms of Service
                       </a>
                       ,{' '}
-                      <a href="#" className="text-[#bb9f58] hover:text-[#a08a4a] font-semibold">
+                      <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-[#bb9f58] hover:text-[#a08a4a] font-semibold">
                         Privacy Policy
                       </a>
                       , and{' '}
-                      <a href="#" className="text-[#bb9f58] hover:text-[#a08a4a] font-semibold">
+                      <a href="/trainer-code-of-conduct" target="_blank" rel="noopener noreferrer" className="text-[#bb9f58] hover:text-[#a08a4a] font-semibold">
                         Trainer Code of Conduct
                       </a>
                       . I understand that my application will be reviewed and I may be contacted for additional verification.

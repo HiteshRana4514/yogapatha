@@ -11,6 +11,7 @@ import YTTCDetailPage from './pages/YTTCDetailPage'
 import TrainerAuthPage from './pages/TrainerAuthPage'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsAndConditions from './pages/TermsAndConditions'
+import TrainerCodeOfConduct from './pages/TrainerCodeOfConduct'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import EmailConfirmed from './pages/EmailConfirmed'
 import Layout from './pages/Layout'
@@ -86,6 +87,7 @@ function App() {
               <Route path="/yttc/:slug" element={<YTTCDetailPage />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+              <Route path="/trainer-code-of-conduct" element={<TrainerCodeOfConduct />} />
             </Route>
 
             {/* Pages without header/footer */}

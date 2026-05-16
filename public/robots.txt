@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Disallow admin and dashboard routes
+Disallow: /admin_dashboard/
+Disallow: /trainer_dashboard/
+Disallow: /admin-login
+Disallow: /forgot_password
+Disallow: /email_confirmed
+
+Sitemap: https://yogapatha.in/sitemap.xml

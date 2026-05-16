@@ -247,22 +247,15 @@ function FooterSection() {
             </div>
 
             <div className="flex flex-wrap gap-6 text-sm">
-              {(content?.footer_bottom?.links || [
-                { label: 'Privacy Policy', url: '/privacy-policy' },
-                { label: 'Terms of Service', url: '/terms-and-conditions' },
-                { label: 'Cookie Policy', url: '#' },
-              ]).map((link, idx) => {
-                // Map legacy/short URLs to correct routes
-                let targetUrl = link.url
-                if (targetUrl === '/privacy') targetUrl = '/privacy-policy'
-                if (targetUrl === '/terms') targetUrl = '/terms-and-conditions'
-
-                return (
-                  <a key={idx} href={targetUrl} className="text-white/60 hover:text-[#bb9f58] transition-colors duration-300">
-                    {link.label}
-                  </a>
-                )
-              })}
+              <a href="/privacy-policy" className="text-white/60 hover:text-[#bb9f58] transition-colors duration-300">
+                Privacy Policy
+              </a>
+              <a href="/terms-and-conditions" className="text-white/60 hover:text-[#bb9f58] transition-colors duration-300">
+                Terms & Conditions
+              </a>
+              <a href="/trainer-code-of-conduct" className="text-white/60 hover:text-[#bb9f58] transition-colors duration-300">
+                Trainer Code of Conduct
+              </a>
             </div>
           </div>
         </div>
