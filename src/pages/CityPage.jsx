@@ -94,7 +94,7 @@ function CityPage() {
     return iconMap[category] || { icon: 'Star', color: 'from-gray-500 to-gray-600' }
   }
 
-  const siteUrl = window.location.origin
+  const siteUrl = 'https://www.yogapatha.in'
   const pageUrl = `${siteUrl}/locations/${stateSlug}/${citySlug}`
 
   if (loading) {
@@ -222,7 +222,7 @@ function CityPage() {
         title={`Yoga Teacher at Home in ${city.name}, ${city.state} | Personal & Online Yoga Classes`}
         description={`Find certified yoga teachers at home or online in ${city.name}, ${city.state}. Beginners, seniors, pre postnatal, therapy, weight loss, and corporate yoga sessions available.`}
         keywords={`yoga teacher ${city.name}, yoga at home ${city.name}, personal yoga trainer ${city.name}, online yoga classes ${city.name}, yoga instructor ${city.name}`}
-        ogImage="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+        ogImage="/logo.png"
         canonicalUrl={pageUrl}
       />
 

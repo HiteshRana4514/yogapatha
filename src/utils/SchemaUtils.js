@@ -77,5 +77,53 @@ export const getProductSchema = (service) => ({
   'provider': {
     '@type': 'Organization',
     'name': 'YogaPatha',
+    'logo': 'https://www.yogapatha.in/logo.png'
   },
+});
+
+export const getBlogSchema = (blog) => ({
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  'headline': blog.title,
+  'image': blog.image_url || 'https://www.yogapatha.in/logo.png',
+  'author': {
+    '@type': 'Person',
+    'name': 'YogaPatha Expert'
+  },
+  'publisher': {
+    '@type': 'Organization',
+    'name': 'YogaPatha',
+    'logo': {
+      '@type': 'ImageObject',
+      'url': 'https://www.yogapatha.in/logo.png'
+    }
+  },
+  'datePublished': blog.published_at || blog.created_at,
+  'description': blog.description || blog.content?.substring(0, 160).replace(/<[^>]*>/g, '')
+});
+
+export const getCourseSchema = (course) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  'name': course.title,
+  'description': course.description,
+  'provider': {
+    '@type': 'Organization',
+    'name': 'YogaPatha',
+    'sameAs': 'https://www.yogapatha.in/'
+  },
+  'image': course.image_url || 'https://www.yogapatha.in/logo.png'
+});
+
+export const getTrainerSchema = (trainer) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  'name': trainer.full_name,
+  'description': trainer.bio || `Certified Yoga Trainer at YogaPatha`,
+  'image': trainer.profile_image || 'https://www.yogapatha.in/logo.png',
+  'jobTitle': 'Yoga Instructor',
+  'worksFor': {
+    '@type': 'Organization',
+    'name': 'YogaPatha'
+  }
 });

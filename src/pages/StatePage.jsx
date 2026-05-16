@@ -32,7 +32,7 @@ function StatePage() {
     window.scrollTo(0, 0)
   }
 
-  const siteUrl = window.location.origin
+  const siteUrl = 'https://www.yogapatha.in'
   const pageUrl = `${siteUrl}/locations/${stateSlug}`
 
   if (loading) {
@@ -60,7 +60,7 @@ function StatePage() {
         title={`Yoga & Fitness Trainers in ${state.name} | YogaPatha`}
         description={`Find certified yoga and fitness trainers in ${state.name}. Browse ${state.cities.length} cities including ${state.cities.slice(0, 3).map(c => c.name).join(', ')}. Book professional trainers near you.`}
         keywords={`yoga trainers ${state.name}, fitness trainers ${state.name}, yoga classes ${state.name}, personal trainers ${state.name}, ${cityNames}`}
-        ogImage={state.image}
+        ogImage={state.image || '/logo.png'}
         canonicalUrl={pageUrl}
       />
 

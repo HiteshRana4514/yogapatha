@@ -23,7 +23,7 @@ function LocationsPage() {
     setLoading(false)
   }
 
-  const siteUrl = window.location.origin
+  const siteUrl = 'https://www.yogapatha.in'
   const pageUrl = `${siteUrl}/locations`
 
   const filteredStates = states.filter(state =>
@@ -44,7 +44,7 @@ function LocationsPage() {
         title="Find Yoga & Fitness Trainers Near You | YogaPatha Locations"
         description="Discover certified yoga and fitness trainers across India. Browse trainers in 12+ states and 50+ cities. Find the perfect trainer near your location."
         keywords="yoga trainers India, fitness trainers near me, yoga classes India, personal trainers by location, yoga instructors, fitness coaching India"
-        ogImage="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+        ogImage="/logo.png"
         canonicalUrl={pageUrl}
       />
       

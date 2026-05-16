@@ -72,7 +72,7 @@ function YTTCDetailPage() {
                 description={course.description.substring(0, 160)}
                 keywords={`yttc, ${course.title}, yoga teacher training, certified yoga instructor, yoga alliance`}
                 ogImage={course.image_url}
-                canonicalUrl={window.location.href}
+                canonicalUrl={`https://www.yogapatha.in/yttc/${slug}`}
                 ogType="product"
                 schemaData={{
                     '@context': 'https://schema.org',
