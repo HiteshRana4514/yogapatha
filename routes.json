@@ -1,36 +1,274 @@
 [
-  "/",
-  "/services",
-  "/about_us",
-  "/contact_us",
-  "/media",
-  "/blogs",
-  "/locations",
-  "/yttc",
-  "/privacy-policy",
-  "/terms-and-conditions",
-  "/trainer-code-of-conduct",
-  "/blogs/yoga-in-evening",
-  "/blogs/yoga-for-football-players",
-  "/blogs/yoga-in-women-life",
-  "/blogs/the-ultimate-guide-to-hatha-yoga-balance-breath-and-benefits-for-beginners",
-  "/blogs/yoga-in-sports",
-  "/blogs/yoga-for-strength",
-  "/blogs/yoga-for-speed-",
-  "/blogs/top-10-benefits-of-practicing-yoga-daily",
-  "/blogs/yoga-and-its-benefits",
-  "/blogs/yoga-for-health-improvement",
-  "/blogs/vinyasa-flow",
-  "/blogs/yoga-flexibility-",
-  "/services/55a91403-f239-4373-8fd5-69643e82252e",
-  "/services/1e9aa645-83b6-46eb-a44c-867489ce806d",
-  "/services/638ce33a-2721-451b-8a44-cd04ca3c3729",
-  "/services/80befc32-53af-4323-a536-d8d1b593ea3e",
-  "/services/832b0a52-991a-4995-a311-9f723bfe02ec",
-  "/services/abad9cee-d0e0-4165-888f-029b7c27d3ee",
-  "/services/4a14a534-c6a2-4e67-ac06-d46cd017c0cd",
-  "/services/d3f6ee7b-920a-4cb7-8b4b-5ad25e1fe3bd",
-  "/yttc/prenatal-postnatal-yoga-teacher-training",
-  "/yttc/300hour-advanced-yoga-teacher-training",
-  "/yttc/200hour-yoga-teacher-training-yttc"
+  {
+    "route": "/",
+    "meta": {
+      "title": "YogaPatha | Find Certified Yoga Trainers Across India",
+      "description": "Connect with certified yoga trainers for personalized online and home sessions across India.",
+      "image": "https://tislxmwwnvjyccvcqavu.supabase.co/storage/v1/object/public/images/footerLogo.jpg"
+    }
+  },
+  {
+    "route": "/services",
+    "meta": {
+      "title": "Our Services | YogaPatha",
+      "description": "Connect with certified yoga trainers for personalized online and home sessions across India.",
+      "image": "https://tislxmwwnvjyccvcqavu.supabase.co/storage/v1/object/public/images/footerLogo.jpg"
+    }
+  },
+  {
+    "route": "/about_us",
+    "meta": {
+      "title": "About Us | YogaPatha",
+      "description": "Connect with certified yoga trainers for personalized online and home sessions across India.",
+      "image": "https://tislxmwwnvjyccvcqavu.supabase.co/storage/v1/object/public/images/footerLogo.jpg"
+    }
+  },
+  {
+    "route": "/contact_us",
+    "meta": {
+      "title": "Contact Us | YogaPatha",
+      "description": "Connect with certified yoga trainers for personalized online and home sessions across India.",
+      "image": "https://tislxmwwnvjyccvcqavu.supabase.co/storage/v1/object/public/images/footerLogo.jpg"
+    }
+  },
+  {
+    "route": "/media",
+    "meta": {
+      "title": "Media | YogaPatha",
+      "description": "Connect with certified yoga trainers for personalized online and home sessions across India.",
+      "image": "https://tislxmwwnvjyccvcqavu.supabase.co/storage/v1/object/public/images/footerLogo.jpg"
+    }
+  },
+  {
+    "route": "/blogs",
+    "meta": {
+      "title": "Yoga Blogs | YogaPatha",
+      "description": "Connect with certified yoga trainers for personalized online and home sessions across India.",
+      "image": "https://tislxmwwnvjyccvcqavu.supabase.co/storage/v1/object/public/images/footerLogo.jpg"
+    }
+  },
+  {
+    "route": "/locations",
+    "meta": {
+      "title": "Locations | YogaPatha",
+      "description": "Connect with certified yoga trainers for personalized online and home sessions across India.",
+      "image": "https://tislxmwwnvjyccvcqavu.supabase.co/storage/v1/object/public/images/footerLogo.jpg"
+    }
+  },
+  {
+    "route": "/yttc",
+    "meta": {
+      "title": "YTTC Courses | YogaPatha",
+      "description": "Connect with certified yoga trainers for personalized online and home sessions across India.",
+      "image": "https://tislxmwwnvjyccvcqavu.supabase.co/storage/v1/object/public/images/footerLogo.jpg"
+    }
+  },
+  {
+    "route": "/privacy-policy",
+    "meta": {
+      "title": "Privacy Policy | YogaPatha",
+      "description": "Connect with certified yoga trainers for personalized online and home sessions across India.",
+      "image": "https://tislxmwwnvjyccvcqavu.supabase.co/storage/v1/object/public/images/footerLogo.jpg"
+    }
+  },
+  {
+    "route": "/terms-and-conditions",
+    "meta": {
+      "title": "Terms & Conditions | YogaPatha",
+      "description": "Connect with certified yoga trainers for personalized online and home sessions across India.",
+      "image": "https://tislxmwwnvjyccvcqavu.supabase.co/storage/v1/object/public/images/footerLogo.jpg"
+    }
+  },
+  {
+    "route": "/trainer-code-of-conduct",
+    "meta": {
+      "title": "Trainer Code of Conduct | YogaPatha",
+      "description": "Connect with certified yoga trainers for personalized online and home sessions across India.",
+      "image": "https://tislxmwwnvjyccvcqavu.supabase.co/storage/v1/object/public/images/footerLogo.jpg"
+    }
+  },
+  {
+    "route": "/blogs/yoga-in-evening",
+    "meta": {
+      "title": "Yoga in evening | Yoga Blogs | YogaPatha",
+      "description": "Embrace the Calm: The Power of Yoga in the Evening\nIn today’s fast-paced world, winding down after a busy day is just as important as starting it right. Practic",
+      "image": "https://res.cloudinary.com/dft1et3yz/image/upload/v1762514972/yogapatha/blogs/mogkws4e1gmux4ftbyxw.jpg"
+    }
+  },
+  {
+    "route": "/blogs/yoga-for-football-players",
+    "meta": {
+      "title": "Yoga for football players | Yoga Blogs | YogaPatha",
+      "description": "Yoga for Football Players: Boost Your Game with Yogapatha\nFootball demands strength, agility, and razor-sharp focus. Incorporating yoga into a football training",
+      "image": "https://res.cloudinary.com/dft1et3yz/image/upload/v1773391287/yogapatha/blogs/cq38b1ipdpob4fxb9axg.png"
+    }
+  },
+  {
+    "route": "/blogs/yoga-in-women-life",
+    "meta": {
+      "title": "Yoga in women life | Yoga Blogs | YogaPatha",
+      "description": "महिलाओं के जीवन में योग का महत्व\nआज के तेजी से बदलते जीवन में जहां महिलाएं घर, परिवार और करियर की कई जिम्मेदारियां संभालती हैं, वहीं उनकी सेहत और मानसिक शांति ब",
+      "image": "https://res.cloudinary.com/dft1et3yz/image/upload/v1762504662/yogapatha/blogs/vhyxyyme4zwovt4lzbb6.jpg"
+    }
+  },
+  {
+    "route": "/blogs/the-ultimate-guide-to-hatha-yoga-balance-breath-and-benefits-for-beginners",
+    "meta": {
+      "title": "The Ultimate Guide to Hatha Yoga: Balance, Breath, and Benefits for Beginners | Yoga Blogs | YogaPatha",
+      "description": "Discover the power of Hatha Yoga for achieving mind-body harmony. Learn how this beginner-friendly practice uses gentle postures and breathwork to build strength, improve flexibility, and reduce daily stress.",
+      "image": "https://res.cloudinary.com/dft1et3yz/image/upload/v1773391581/yogapatha/blogs/g20xy75ksuj1jbv7p8pk.png"
+    }
+  },
+  {
+    "route": "/blogs/yoga-in-sports",
+    "meta": {
+      "title": "yoga in sports | Yoga Blogs | YogaPatha",
+      "description": "Yoga in Sports: Enhancing Athletic Performance with Yogapatha\nWhether you are a professional athlete or a weekend warrior, yoga offers transformative benefits t",
+      "image": "https://tislxmwwnvjyccvcqavu.supabase.co/storage/v1/object/public/images/footerLogo.jpg"
+    }
+  },
+  {
+    "route": "/blogs/yoga-for-strength",
+    "meta": {
+      "title": "Yoga for strength | Yoga Blogs | YogaPatha",
+      "description": "Yoga for Strength: Build Power and Stability with Yogapatha\nStrength is the foundation of a healthy, balanced body and a resilient mind. Yoga for strength combi",
+      "image": "https://res.cloudinary.com/dft1et3yz/image/upload/v1762503999/yogapatha/blogs/gblw4hyerqz5t52wirap.jpg"
+    }
+  },
+  {
+    "route": "/blogs/yoga-for-speed-",
+    "meta": {
+      "title": "Yoga for speed  | Yoga Blogs | YogaPatha",
+      "description": "Yoga for Speed: How Regular Practice Can Transform Your Athletic Performance\nAre you looking to run faster, train harder, and push your boundaries? While intens",
+      "image": "https://res.cloudinary.com/dft1et3yz/image/upload/v1762925883/yogapatha/blogs/yrfg1khfoetvy6ri4spi.jpg"
+    }
+  },
+  {
+    "route": "/blogs/top-10-benefits-of-practicing-yoga-daily",
+    "meta": {
+      "title": "Top 10 Benefits of Practicing Yoga Daily | Yoga Blogs | YogaPatha",
+      "description": "Top 10 Benefits of Practicing Yoga Daily\nAre you looking for a simple yet powerful way to transform your health and well-being? Yoga is more than just stretchin",
+      "image": "https://res.cloudinary.com/dft1et3yz/image/upload/v1762513476/yogapatha/blogs/fnf5hksigu0r77d4xtcq.jpg"
+    }
+  },
+  {
+    "route": "/blogs/yoga-and-its-benefits",
+    "meta": {
+      "title": "yoga and its benefits | Yoga Blogs | YogaPatha",
+      "description": "Discover the Power of Yoga: Transform Your Mind, Body, and Life\nAre you searching for a natural way to reduce stress, boost energy, and improve overall wellness",
+      "image": "https://res.cloudinary.com/dft1et3yz/image/upload/v1764663203/yogapatha/blogs/oea5h6amg1tupbegpl8d.png"
+    }
+  },
+  {
+    "route": "/blogs/yoga-for-health-improvement",
+    "meta": {
+      "title": "yoga for health improvement | Yoga Blogs | YogaPatha",
+      "description": "स्वास्थ्य सुधार के लिए योग: आपकी सेहत की नई शुरुआत\nहमारे आधुनिक जीवनशैली में स्वास्थ्य का नुकसान आम समस्या बन गया है। योग उस प्राचीन कला का नाम है जो न केवल शरी",
+      "image": "https://tislxmwwnvjyccvcqavu.supabase.co/storage/v1/object/public/images/footerLogo.jpg"
+    }
+  },
+  {
+    "route": "/blogs/vinyasa-flow",
+    "meta": {
+      "title": "Vinyasa flow | Yoga Blogs | YogaPatha",
+      "description": "विन्यास फ्लो योग: शरीर और मन को जोड़ने का आधुनिक तरीका\nक्या आप योग के जरिए न सिर्फ शारीरिक लचीलापन बढ़ाना चाहते हैं, बल्कि अपने मन को भी शांति देना चाहते हैं? त",
+      "image": "https://tislxmwwnvjyccvcqavu.supabase.co/storage/v1/object/public/images/footerLogo.jpg"
+    }
+  },
+  {
+    "route": "/blogs/yoga-flexibility-",
+    "meta": {
+      "title": "Yoga flexibility  | Yoga Blogs | YogaPatha",
+      "description": "योग के जरिए शरीर को लचीला बनाएं: फ्लेक्सिबिलिटी के लिए बेस्ट योग आसन\nक्या आपने कभी महसूस किया है कि रोजमर्रा की छोटी-छोटी गतिविधियों में भी शरीर अकड़ जाता है? य",
+      "image": "https://tislxmwwnvjyccvcqavu.supabase.co/storage/v1/object/public/images/footerLogo.jpg"
+    }
+  },
+  {
+    "route": "/services/55a91403-f239-4373-8fd5-69643e82252e",
+    "meta": {
+      "title": "Therapeutic Yoga - Professional Yoga Services",
+      "description": "Therapeutic Yoga focuses on healing and recovery through specially designed yoga practices. This program is ideal for individuals dealing with back pain, cervic",
+      "image": "https://res.cloudinary.com/dft1et3yz/image/upload/v1771917356/services/fjr6gib0jxrhlb0wwwa3.png"
+    }
+  },
+  {
+    "route": "/services/1e9aa645-83b6-46eb-a44c-867489ce806d",
+    "meta": {
+      "title": "One-on-One Personal Training - Professional Yoga Services",
+      "description": "Our One-on-One Personal Training program is designed to provide individualized attention tailored to your specific health goals, fitness level, and lifestyle. W",
+      "image": "https://res.cloudinary.com/dft1et3yz/image/upload/v1771852780/services/xeas7zltchoh5q6at0xq.png"
+    }
+  },
+  {
+    "route": "/services/638ce33a-2721-451b-8a44-cd04ca3c3729",
+    "meta": {
+      "title": "Group Yoga Classes - Professional Yoga Services",
+      "description": "Our Group Yoga Classes create a motivating and positive environment where individuals practice together under expert guidance. These sessions are structured to ",
+      "image": "https://res.cloudinary.com/dft1et3yz/image/upload/v1771917516/services/e9isswaxwxneoprnzrun.png"
+    }
+  },
+  {
+    "route": "/services/80befc32-53af-4323-a536-d8d1b593ea3e",
+    "meta": {
+      "title": "Meditation & Mindfulness Sessions - Professional Yoga Services",
+      "description": "Our Meditation & Mindfulness Sessions are designed to calm the mind, reduce stress, and enhance emotional clarity. These guided sessions help you develop awaren",
+      "image": "https://res.cloudinary.com/dft1et3yz/image/upload/v1771917750/services/je9714fmbmlvdlvxyxli.png"
+    }
+  },
+  {
+    "route": "/services/832b0a52-991a-4995-a311-9f723bfe02ec",
+    "meta": {
+      "title": "Corporate Yoga Programs - Professional Yoga Services",
+      "description": "Our Corporate Yoga Programs are designed to improve employee health, productivity, and stress management at the workplace. These sessions focus on posture corre",
+      "image": "https://res.cloudinary.com/dft1et3yz/image/upload/v1771917994/services/sudtbtqwxjjiwivftbjq.png"
+    }
+  },
+  {
+    "route": "/services/abad9cee-d0e0-4165-888f-029b7c27d3ee",
+    "meta": {
+      "title": "Kids Yoga - Professional Yoga Services",
+      "description": "Kids Yoga sessions are designed to improve flexibility, concentration, and emotional balance in children through fun and engaging yoga practices. These classes ",
+      "image": "https://res.cloudinary.com/dft1et3yz/image/upload/v1771918196/services/ibtmr1njof8cghkxi10n.png"
+    }
+  },
+  {
+    "route": "/services/4a14a534-c6a2-4e67-ac06-d46cd017c0cd",
+    "meta": {
+      "title": "Yoga for Pregnant Women (Female Instructor at Home) - Professional Yoga Services",
+      "description": "Our Prenatal Yoga program is specially designed for expecting mothers who want safe, gentle, and guided yoga sessions in the comfort of their home. Led by a qua",
+      "image": "https://res.cloudinary.com/dft1et3yz/image/upload/v1771918434/services/casiovoxnpflg4vzbd19.png"
+    }
+  },
+  {
+    "route": "/services/d3f6ee7b-920a-4cb7-8b4b-5ad25e1fe3bd",
+    "meta": {
+      "title": "Female Instructor at Home - Professional Yoga Services",
+      "description": "Our Female Instructor at Home service is specially designed for women who prefer personalized yoga sessions in the privacy and comfort of their own home. Whethe",
+      "image": "https://res.cloudinary.com/dft1et3yz/image/upload/v1771918980/services/oja4iaerj081f0uaqxk5.png"
+    }
+  },
+  {
+    "route": "/yttc/prenatal-postnatal-yoga-teacher-training",
+    "meta": {
+      "title": "Prenatal & Postnatal Yoga Teacher Training | YTTC Yoga Teacher Training",
+      "description": "This specialized training equips yoga instructors with the skills to safely guide prenatal and postnatal yoga sessions. Learn trimester-based modifications, bre",
+      "image": "https://res.cloudinary.com/dft1et3yz/image/upload/v1771920096/courses/u3sefph8phvuxffjbpja.png"
+    }
+  },
+  {
+    "route": "/yttc/300hour-advanced-yoga-teacher-training",
+    "meta": {
+      "title": "300-Hour Advanced Yoga Teacher Training | YTTC Yoga Teacher Training",
+      "description": "This advanced-level program is designed for certified yoga teachers who want to deepen their knowledge, refine teaching skills, and specialize in advanced asana",
+      "image": "https://res.cloudinary.com/dft1et3yz/image/upload/v1771919952/courses/dz5rk7tmo2o4psrpmb6b.png"
+    }
+  },
+  {
+    "route": "/yttc/200hour-yoga-teacher-training-yttc",
+    "meta": {
+      "title": "200-Hour Yoga Teacher Training (YTTC) | YTTC Yoga Teacher Training",
+      "description": "The 200-Hour Yoga Teacher Training is a foundational certification program designed for aspiring yoga teachers and dedicated practitioners who want to deepen th",
+      "image": "https://res.cloudinary.com/dft1et3yz/image/upload/v1771919475/courses/oifpgp5ndetpr2dwvjdi.png"
+    }
+  }
 ]

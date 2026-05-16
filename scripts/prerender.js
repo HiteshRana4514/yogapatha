@@ -1,90 +1,85 @@
-import puppeteer from 'puppeteer';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { spawn } from 'child_process';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const DIST_PATH = path.join(__dirname, '../dist');
 
-async function prerender() {
+async function injectMetaTags() {
   if (!fs.existsSync('./routes.json')) {
     console.error('routes.json not found. Run generate-routes.js first.');
     process.exit(1);
   }
 
   const routes = JSON.parse(fs.readFileSync('./routes.json', 'utf-8'));
-  console.log(`🚀 Starting prerender for ${routes.length} routes...`);
+  console.log(`🚀 Injecting meta tags into ${routes.length} routes...`);
 
-  // Start local server to serve the build folder
-  // Port 8085 to avoid conflicts (5432 is often used by databases)
-  const server = spawn('npx', ['http-server', DIST_PATH, '-p', '8085', '--proxy', 'http://localhost:8085?'], {
-    shell: true
-  });
+  // We read the base index.html that Vite just built
+  const baseIndexPath = path.join(DIST_PATH, 'index.html');
+  if (!fs.existsSync(baseIndexPath)) {
+    console.error('dist/index.html not found. Make sure "vite build" runs before this script.');
+    process.exit(1);
+  }
+  
+  const baseHtml = fs.readFileSync(baseIndexPath, 'utf-8');
 
-  server.stdout.on('data', (data) => {
-    // console.log(`Server: ${data}`);
-  });
-
-  // Wait for server to be ready
-  await new Promise(resolve => setTimeout(resolve, 5000));
-
-  const browser = await puppeteer.launch({
-    headless: 'new',
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
-  });
-
-  const page = await browser.newPage();
-  await page.setViewport({ width: 1280, height: 800 });
-
-  for (const route of routes) {
-    const url = `http://localhost:8085${route}`;
-    console.log(`📄 Prerendering: ${route}`);
-
+  for (const routeObj of routes) {
+    const { route, meta } = routeObj;
+    console.log(`📄 Processing: ${route}`);
+    
     try {
-      // Visit page
-      await page.goto(url, { waitUntil: 'networkidle0', timeout: 30000 });
+      const url = `https://www.yogapatha.in${route === '/' ? '' : route}`;
+      
+      // We do a simple string replacement for the meta tags
+      let newHtml = baseHtml;
+      
+      // First, completely remove the basic head elements we want to replace to avoid duplicates
+      newHtml = newHtml.replace(/<title>.*?<\/title>/g, '');
+      newHtml = newHtml.replace(/<meta name="description" content=".*?"\s*\/>/g, '');
+      
+      // We will inject our new meta tags right before the closing </head>
+      const metaTags = `
+        <title>${meta.title}</title>
+        <meta name="description" content="${meta.description?.replace(/"/g, '&quot;')}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="${url}" />
+        <meta property="og:title" content="${meta.title?.replace(/"/g, '&quot;')}" />
+        <meta property="og:description" content="${meta.description?.replace(/"/g, '&quot;')}" />
+        <meta property="og:image" content="${meta.image}" />
+        
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="${url}" />
+        <meta name="twitter:title" content="${meta.title?.replace(/"/g, '&quot;')}" />
+        <meta name="twitter:description" content="${meta.description?.replace(/"/g, '&quot;')}" />
+        <meta name="twitter:image" content="${meta.image}" />
+        
+        <link rel="canonical" href="${url}" />
+      `;
 
-      // Wait for the app to signal readiness
-      await page.evaluate(() => {
-        return new Promise((resolve) => {
-          if (window.prerenderReady) return resolve();
-          window.addEventListener('render-event', resolve);
-          setTimeout(resolve, 8000); // Increased safety timeout
-        });
-      });
-
-      const content = await page.content();
-
-      const processedContent = content
-        .replace(/http:\/\/localhost:8085/g, 'https://www.yogapatha.in')
-        .replace(/https:\/\/www.yogapatha.in\/\//g, 'https://www.yogapatha.in/');
-
+      newHtml = newHtml.replace('</head>', `${metaTags}\n</head>`);
+      
       // Calculate output path
       const outputDir = route === '/' ? DIST_PATH : path.join(DIST_PATH, route);
-
+      
       if (!fs.existsSync(outputDir)) {
         fs.mkdirSync(outputDir, { recursive: true });
       }
-
+      
       const outputPath = path.join(outputDir, 'index.html');
-      fs.writeFileSync(outputPath, processedContent);
+      fs.writeFileSync(outputPath, newHtml);
       console.log(`✅ Saved: ${route}`);
-
+      
     } catch (err) {
-      console.error(`❌ Failed to prerender ${route}:`, err.message);
+      console.error(`❌ Failed to process ${route}:`, err.message);
     }
   }
 
-  console.log('✅ All routes processed.');
-
-  await browser.close();
-  server.kill('SIGINT');
+  console.log('✅ All routes processed successfully.');
   process.exit(0);
 }
 
-prerender().catch(err => {
-  console.error('Prerender fatal error:', err);
+injectMetaTags().catch(err => {
+  console.error('Fatal error:', err);
   process.exit(1);
 });
