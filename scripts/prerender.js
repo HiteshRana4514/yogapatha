@@ -30,22 +30,22 @@ async function prerender() {
   // Wait for server to be ready
   await new Promise(resolve => setTimeout(resolve, 5000));
 
-  const browser = await puppeteer.launch({ 
+  const browser = await puppeteer.launch({
     headless: 'new',
     args: ['--no-sandbox', '--disable-setuid-sandbox']
   });
-  
+
   const page = await browser.newPage();
   await page.setViewport({ width: 1280, height: 800 });
 
   for (const route of routes) {
     const url = `http://localhost:8085${route}`;
     console.log(`📄 Prerendering: ${route}`);
-    
+
     try {
       // Visit page
       await page.goto(url, { waitUntil: 'networkidle0', timeout: 30000 });
-      
+
       // Wait for the app to signal readiness
       await page.evaluate(() => {
         return new Promise((resolve) => {
@@ -56,30 +56,29 @@ async function prerender() {
       });
 
       const content = await page.content();
-      
-      // Post-process to fix localhost URLs and production domain
+
       const processedContent = content
         .replace(/http:\/\/localhost:8085/g, 'https://www.yogapatha.in')
         .replace(/https:\/\/www.yogapatha.in\/\//g, 'https://www.yogapatha.in/');
 
       // Calculate output path
       const outputDir = route === '/' ? DIST_PATH : path.join(DIST_PATH, route);
-      
+
       if (!fs.existsSync(outputDir)) {
         fs.mkdirSync(outputDir, { recursive: true });
       }
-      
+
       const outputPath = path.join(outputDir, 'index.html');
       fs.writeFileSync(outputPath, processedContent);
       console.log(`✅ Saved: ${route}`);
-      
+
     } catch (err) {
       console.error(`❌ Failed to prerender ${route}:`, err.message);
     }
   }
 
   console.log('✅ All routes processed.');
-  
+
   await browser.close();
   server.kill('SIGINT');
   process.exit(0);
