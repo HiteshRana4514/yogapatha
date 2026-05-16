@@ -147,7 +147,7 @@ const BlogDetailPage = () => {
             'name': 'YogaPatha',
             'logo': {
               '@type': 'ImageObject',
-              'url': 'https://www.yogapatha.in/favicon2.png'
+              'url': 'https://tislxmwwnvjyccvcqavu.supabase.co/storage/v1/object/public/images/footerLogo.jpg'
             }
           },
           'datePublished': blog.published_at,

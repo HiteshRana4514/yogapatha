@@ -7,7 +7,7 @@ export const getOrganizationSchema = () => ({
   '@type': 'Organization',
   'name': 'YogaPatha',
   'url': 'https://www.yogapatha.in/',
-  'logo': 'https://www.yogapatha.in/favicon2.png',
+  'logo': 'https://tislxmwwnvjyccvcqavu.supabase.co/storage/v1/object/public/images/footerLogo.jpg',
   'description': 'PAN India platform connecting clients with certified yoga trainers for personal needs like weight loss, stress management, and prenatal yoga.',
   'address': {
     '@type': 'PostalAddress',
@@ -36,7 +36,7 @@ export const getLocalBusinessSchema = () => ({
   '@context': 'https://schema.org',
   '@type': 'HealthAndBeautyBusiness',
   'name': 'YogaPatha',
-  'image': 'https://www.yogapatha.in/favicon2.png',
+  'image': 'https://tislxmwwnvjyccvcqavu.supabase.co/storage/v1/object/public/images/footerLogo.jpg',
   '@id': 'https://www.yogapatha.in/',
   'url': 'https://www.yogapatha.in/',
   'telephone': '+918529897856',
