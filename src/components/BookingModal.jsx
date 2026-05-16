@@ -61,7 +61,7 @@ function BookingModal({ isOpen, onClose, service }) {
   }
 
   const handleWhatsAppConnect = () => {
-    const phoneNumber = '919876543210' // Replace with your WhatsApp business number
+    const phoneNumber = '918529897856' // Replace with your WhatsApp business number
     const message = `Hi! I'm interested in booking the ${service?.title} service.%0A%0AName: ${formData.firstName} ${formData.lastName}%0AEmail: ${formData.email}%0APhone: ${formData.phone}%0APreferred Date: ${formData.preferredDate}%0A%0AMessage: ${formData.message || 'Please contact me for more details.'}`
 
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank')

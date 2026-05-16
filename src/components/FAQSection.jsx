@@ -115,7 +115,7 @@ function FAQSection() {
   }
 
   const handleWhatsAppConnect = () => {
-    const phoneNumber = '919876543210' // Replace with actual business number
+    const phoneNumber = '918529897856' // Replace with actual business number
     const message = encodeURIComponent("Hi YogaPatha team! I have some questions regarding your programs. Can you help me?")
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank')
   }

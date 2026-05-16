@@ -193,7 +193,7 @@ export const cityDetails = {
     "Nutrition Guidance",
     "Progress Tracking"
   ],
-  whatsappNumber: "+919876543210", // Default WhatsApp number
+  whatsappNumber: "+918529897856", // Default WhatsApp number
   whatsappMessage: "Hello! I'm interested in yoga/fitness training in {cityName}. Please provide more details."
 }
 

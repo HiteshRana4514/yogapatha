@@ -87,7 +87,7 @@ function YTTCPage() {
     }, [filteredCourses.length, searchTerm])
 
     const handleWhatsAppConnect = () => {
-        const phoneNumber = '919876543210' // Replace with actual business number
+        const phoneNumber = '918529897856' // Replace with actual business number
         const message = encodeURIComponent("Hi YogaPatha team! I'm interested in your Yoga Teacher Training Courses. Can you help me?")
         window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank')
     }

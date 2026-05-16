@@ -206,7 +206,7 @@ function CityPage() {
   }
 
   const handleWhatsAppClick = (serviceName) => {
-    const whatsappNumber = city.whatsapp_number || '+919876543210'
+    const whatsappNumber = city.whatsapp_number || '+918529897856'
     const message = city.whatsapp_message
       ? city.whatsapp_message.replace('{serviceName}', serviceName)
       : `Hi, I'm interested in ${serviceName} Yoga service in ${city.name}, ${city.state}. Please share complete details and availability.`
@@ -216,11 +216,11 @@ function CityPage() {
   }
 
   const handleCallClick = () => {
-    window.location.href = `tel:${city.whatsapp_number || '+919876543210'}`
+    window.location.href = `tel:${city.whatsapp_number || '+918529897856'}`
   }
 
   const handleConsultationClick = () => {
-    const whatsappNumber = city.whatsapp_number || '+919876543210'
+    const whatsappNumber = city.whatsapp_number || '+918529897856'
     const message = `Hi, I need a personalized yoga program in ${city.name}, ${city.state}. Please schedule a free consultation session.`
     const encodedMessage = encodeURIComponent(message)
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`

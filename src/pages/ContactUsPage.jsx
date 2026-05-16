@@ -329,7 +329,7 @@ function ContactUsPage() {
   }
 
   const handleWhatsAppConnect = () => {
-    const phoneNumber = '919876543210' // Replace with your WhatsApp business number
+    const phoneNumber = '918529897856' // Replace with your WhatsApp business number
     const message = `Hi! I'm interested in starting my fitness journey with YogaPatha. Could you please provide more details?`
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank')
   }

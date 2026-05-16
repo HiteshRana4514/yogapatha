@@ -881,7 +881,7 @@ function LocationManagement() {
                   value={cityForm.whatsapp_number}
                   onChange={(e) => setCityForm({ ...cityForm, whatsapp_number: e.target.value })}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#336b6e] focus:border-transparent"
-                  placeholder="e.g., +919876543210"
+                  placeholder="e.g., +918529897856"
                 />
               </div>
 
