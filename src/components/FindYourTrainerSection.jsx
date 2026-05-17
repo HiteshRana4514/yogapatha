@@ -247,7 +247,7 @@ function FindYourTrainerSection() {
   }
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 bg-gradient-to-br from-[#fdfcf3] to-white relative overflow-hidden">
+    <section ref={sectionRef} id="find_your_trainer" className="py-16 md:py-24 bg-gradient-to-br from-[#fdfcf3] to-white relative overflow-hidden">
       {/* Background Decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-32 h-32 bg-[#336b6e] opacity-5 rounded-full animate-pulse"></div>

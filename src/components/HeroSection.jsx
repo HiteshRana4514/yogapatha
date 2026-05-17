@@ -169,7 +169,7 @@ function HeroSection() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-1000 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+        <div className={`absolute bottom-8 hidden md:block left-1/2 transform -translate-x-1/2 transition-all duration-1000 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`} style={{ transitionDelay: '0.6s' }}>
           <div className="flex flex-col items-center gap-2 text-[#336b6e] opacity-60">
             <span className="text-sm font-medium">Scroll to explore</span>
@@ -180,7 +180,7 @@ function HeroSection() {
         </div>
 
         {/* Stats or Features Preview */}
-        <div className={`absolute bottom-40 left-0 right-0 transform transition-all duration-1000 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+        <div className={`absolute md:bottom-40 bottom-20 left-0 right-0 transform transition-all duration-1000 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`} style={{ transitionDelay: '0.8s' }}>
           <div className="flex justify-center items-center gap-8 md:gap-16 text-[#336b6e] opacity-70">
             {(heroContent.stats || []).length > 0 ? (

@@ -60,6 +60,7 @@ import CourseManagement from '../Admin_Panel/pages/CourseManagement'
 import FooterCMS from '../Admin_Panel/pages/FooterCMS'
 import GeneralQueryPage from '../Admin_Panel/pages/GeneralQueryPage'
 import FAQManagement from '../Admin_Panel/pages/FAQManagement'
+import AdminReports from '../Admin_Panel/pages/AdminReports'
 import ScrollToTop from './components/ScrollToTop'
 import NotFound from './pages/NotFound'
 
@@ -163,6 +164,7 @@ function App() {
               <Route path="footer_cms" element={<FooterCMS />} />
               <Route path="settings" element={<AdminSettings />} />
               <Route path="invoice_settings" element={<AdminInvoiceSettings />} />
+              <Route path="reports" element={<AdminReports />} />
             </Route>
 
             {/* Catch-all 404 Page */}

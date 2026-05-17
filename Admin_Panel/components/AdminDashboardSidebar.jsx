@@ -85,7 +85,7 @@ function AdminDashboardSidebar({ isOpen, toggleSidebar, activeTab, setActiveTab 
     { id: 'team', label: 'Our Team', icon: Users, url: "team" },
     { id: 'locations', label: 'Location Management', icon: MapPin, url: "location_management" },
     { id: 'support', label: 'Support Tickets', icon: MessageSquare, url: "support_tickets" },
-    { id: 'reports', label: 'Reports', icon: BarChart3, url: "#" },
+    { id: 'reports', label: 'Reports', icon: BarChart3, url: "reports" },
     { id: 'settings', label: 'Settings', icon: Settings, url: "settings" },
     { id: 'invoice-settings', label: 'Invoice Settings', icon: Receipt, url: "invoice_settings" },
   ]
@@ -214,6 +214,8 @@ function AdminDashboardSidebar({ isOpen, toggleSidebar, activeTab, setActiveTab 
                       to={item.url}
                       onClick={() => {
                         setActiveTab(item.id)
+                        console.log(item);
+
                         if (window.innerWidth < 1024) toggleSidebar()
                       }}
                       className={`
