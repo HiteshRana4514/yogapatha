@@ -50,7 +50,10 @@ function CourseManagement() {
         is_active: true,
         curriculum: [''],
         schedule: '',
-        display_order: 0
+        display_order: 0,
+        meta_title: '',
+        meta_description: '',
+        meta_keywords: ''
     })
 
     // Load courses
@@ -122,7 +125,10 @@ function CourseManagement() {
                 is_active: course.is_active,
                 curriculum: (course.curriculum && course.curriculum.length > 0) ? course.curriculum : [''],
                 schedule: course.schedule || '',
-                display_order: course.display_order || 0
+                display_order: course.display_order || 0,
+                meta_title: course.meta_title || '',
+                meta_description: course.meta_description || '',
+                meta_keywords: course.meta_keywords || ''
             })
         } else {
             setFormData({
@@ -137,7 +143,10 @@ function CourseManagement() {
                 is_active: true,
                 curriculum: [''],
                 schedule: '',
-                display_order: 0
+                display_order: 0,
+                meta_title: '',
+                meta_description: '',
+                meta_keywords: ''
             })
         }
 
@@ -237,7 +246,10 @@ function CourseManagement() {
                 is_active: formData.is_active,
                 curriculum: cleanCurriculum,
                 schedule: formData.schedule,
-                display_order: parseInt(formData.display_order) || 0
+                display_order: parseInt(formData.display_order) || 0,
+                meta_title: formData.meta_title || null,
+                meta_description: formData.meta_description || null,
+                meta_keywords: formData.meta_keywords || null
             }
 
             if (modalMode === 'create') {

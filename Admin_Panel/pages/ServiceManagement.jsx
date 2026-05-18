@@ -47,7 +47,10 @@ function ServiceManagement() {
     rating: 0,
     category: '',
     is_active: true,
-    display_order: 0
+    display_order: 0,
+    meta_title: '',
+    meta_description: '',
+    meta_keywords: ''
   })
 
   // Load services
@@ -112,7 +115,10 @@ function ServiceManagement() {
         rating: service.rating || 0,
         category: service.category || '',
         is_active: service.is_active,
-        display_order: service.display_order || 0
+        display_order: service.display_order || 0,
+        meta_title: service.meta_title || '',
+        meta_description: service.meta_description || '',
+        meta_keywords: service.meta_keywords || ''
       })
     } else {
       setFormData({
@@ -126,7 +132,10 @@ function ServiceManagement() {
         rating: 0,
         category: '',
         is_active: true,
-        display_order: services.length
+        display_order: services.length,
+        meta_title: '',
+        meta_description: '',
+        meta_keywords: ''
       })
     }
 
@@ -227,6 +236,9 @@ function ServiceManagement() {
         category: formData.category || null,
         is_active: formData.is_active,
         display_order: parseInt(formData.display_order) || 0,
+        meta_title: formData.meta_title || null,
+        meta_description: formData.meta_description || null,
+        meta_keywords: formData.meta_keywords || null,
         updated_by: user?.id
       }
 
@@ -817,6 +829,52 @@ function ServiceManagement() {
                   />
                   <span className="text-sm font-medium text-[#336b6e]">Active</span>
                 </label>
+              </div>
+
+              {/* SEO Meta Fields */}
+              <div className="pt-6 border-t border-gray-200 mt-6">
+                <h3 className="text-lg font-bold text-[#336b6e] mb-4">SEO Settings</h3>
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-[#336b6e] mb-2">
+                      Meta Title
+                    </label>
+                    <input
+                      type="text"
+                      name="meta_title"
+                      value={formData.meta_title}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl bg-[#fdfcf3]/50 focus:bg-white focus:border-[#bb9f58] focus:outline-none transition-all"
+                      placeholder="SEO Title"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-[#336b6e] mb-2">
+                      Meta Description
+                    </label>
+                    <textarea
+                      name="meta_description"
+                      value={formData.meta_description}
+                      onChange={handleInputChange}
+                      rows={2}
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl bg-[#fdfcf3]/50 focus:bg-white focus:border-[#bb9f58] focus:outline-none transition-all"
+                      placeholder="SEO Description"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-[#336b6e] mb-2">
+                      Meta Keywords
+                    </label>
+                    <input
+                      type="text"
+                      name="meta_keywords"
+                      value={formData.meta_keywords}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl bg-[#fdfcf3]/50 focus:bg-white focus:border-[#bb9f58] focus:outline-none transition-all"
+                      placeholder="e.g., yoga, training, online (comma separated)"
+                    />
+                  </div>
+                </div>
               </div>
             </form>
 

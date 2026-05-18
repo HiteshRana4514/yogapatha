@@ -230,9 +230,9 @@ function CityPage() {
   return (
     <div className="min-h-screen bg-[#fdfcf3]">
       <SEO
-        title={`Yoga Teacher at Home in ${city.name}, ${city.state} | Personal & Online Yoga Classes`}
-        description={`Find certified yoga teachers at home or online in ${city.name}, ${city.state}. Beginners, seniors, pre postnatal, therapy, weight loss, and corporate yoga sessions available.`}
-        keywords={`yoga teacher ${city.name}, yoga at home ${city.name}, personal yoga trainer ${city.name}, online yoga classes ${city.name}, yoga instructor ${city.name}`}
+        title={city.meta_title || `Yoga Teacher at Home in ${city.name}, ${city.state} | Personal & Online Yoga Classes`}
+        description={city.meta_description || `Find certified yoga teachers at home or online in ${city.name}, ${city.state}. Beginners, seniors, pre postnatal, therapy, weight loss, and corporate yoga sessions available.`}
+        keywords={city.meta_keywords || `yoga teacher ${city.name}, yoga at home ${city.name}, personal yoga trainer ${city.name}, online yoga classes ${city.name}, yoga instructor ${city.name}`}
         ogImage="/logo.png"
         canonicalUrl={pageUrl}
       />

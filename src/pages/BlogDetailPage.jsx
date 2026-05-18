@@ -138,9 +138,9 @@ const BlogDetailPage = () => {
   return (
     <>
       <SEO
-        title={`${blog.title} | Yoga Blogs`}
-        description={blog.description || blog.content.substring(0, 160).replace(/<[^>]*>/g, '')}
-        keywords={blog.tags ? blog.tags.join(', ') : 'yoga blog, wellness'}
+        title={blog.meta_title || `${blog.title} | Yoga Blogs`}
+        description={blog.meta_description || blog.description || blog.content.substring(0, 160).replace(/<[^>]*>/g, '')}
+        keywords={blog.meta_keywords || (blog.tags ? blog.tags.join(', ') : 'yoga blog, wellness')}
         ogImage={blog.image_url}
         canonicalUrl={shareUrl}
         ogType="article"
@@ -162,7 +162,7 @@ const BlogDetailPage = () => {
             }
           },
           'datePublished': blog.published_at,
-          'description': blog.description || blog.content.substring(0, 160).replace(/<[^>]*>/g, '')
+          'description': blog.meta_description || blog.description || blog.content.substring(0, 160).replace(/<[^>]*>/g, '')
         }}
       />
       <div className="min-h-screen bg-gradient-to-br from-white to-[#fdfcf3]">

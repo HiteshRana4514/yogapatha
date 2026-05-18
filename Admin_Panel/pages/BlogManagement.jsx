@@ -44,6 +44,9 @@ const BlogManagement = () => {
     image: null,
     published: false,
     is_featured: false,
+    meta_title: "",
+    meta_description: "",
+    meta_keywords: "",
   });
 
   // Cloudinary configuration
@@ -237,6 +240,9 @@ const BlogManagement = () => {
         cloudinary_public_id: cloudinaryPublicId,
         published: formData.published,
         is_featured: formData.is_featured,
+        meta_title: formData.meta_title || null,
+        meta_description: formData.meta_description || null,
+        meta_keywords: formData.meta_keywords || null,
         author_id: user.id,
         author_name: user.email,
         published_at: formData.published ? new Date().toISOString() : null,
@@ -303,6 +309,9 @@ const BlogManagement = () => {
       image: null,
       published: blog.published,
       is_featured: blog.is_featured,
+      meta_title: blog.meta_title || "",
+      meta_description: blog.meta_description || "",
+      meta_keywords: blog.meta_keywords || "",
     });
     setPreviewImage(blog.image_url);
     setShowModal(true);
@@ -381,6 +390,9 @@ const BlogManagement = () => {
       image: null,
       published: false,
       is_featured: false,
+      meta_title: "",
+      meta_description: "",
+      meta_keywords: "",
     });
     setPreviewImage(null);
     if (previewImage && !editingBlog) {
@@ -858,6 +870,43 @@ const BlogManagement = () => {
                       Mark as featured
                     </span>
                   </label>
+                </div>
+              </div>
+
+              {/* SEO Meta Fields */}
+              <div className="pt-6 border-t border-gray-200 mt-6">
+                <h3 className="text-lg font-bold text-[#336b6e] mb-4">SEO Settings</h3>
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-[#336b6e] mb-2">Meta Title</label>
+                    <input
+                      type="text"
+                      className="w-full px-3 py-2 border border-[#336b6e]/30 rounded-lg focus:ring-2 focus:ring-[#bb9f58] focus:border-transparent"
+                      value={formData.meta_title}
+                      onChange={(e) => setFormData({ ...formData, meta_title: e.target.value })}
+                      placeholder="SEO Title"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-[#336b6e] mb-2">Meta Description</label>
+                    <textarea
+                      className="w-full px-3 py-2 border border-[#336b6e]/30 rounded-lg focus:ring-2 focus:ring-[#bb9f58] focus:border-transparent"
+                      value={formData.meta_description}
+                      onChange={(e) => setFormData({ ...formData, meta_description: e.target.value })}
+                      rows="2"
+                      placeholder="SEO Description"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-[#336b6e] mb-2">Meta Keywords</label>
+                    <input
+                      type="text"
+                      className="w-full px-3 py-2 border border-[#336b6e]/30 rounded-lg focus:ring-2 focus:ring-[#bb9f58] focus:border-transparent"
+                      value={formData.meta_keywords}
+                      onChange={(e) => setFormData({ ...formData, meta_keywords: e.target.value })}
+                      placeholder="e.g., yoga, meditation, health (comma separated)"
+                    />
+                  </div>
                 </div>
               </div>
 

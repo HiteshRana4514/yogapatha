@@ -63,9 +63,9 @@ function StatePage() {
   return (
     <div className="min-h-screen bg-[#fdfcf3]">
       <SEO
-        title={`Yoga & Fitness Trainers in ${state.name} | YogaPatha`}
-        description={`Find certified yoga and fitness trainers in ${state.name}. Browse ${state.cities.length} cities including ${state.cities.slice(0, 3).map(c => c.name).join(', ')}. Book professional trainers near you.`}
-        keywords={`yoga trainers ${state.name}, fitness trainers ${state.name}, yoga classes ${state.name}, personal trainers ${state.name}, ${cityNames}`}
+        title={state.meta_title || `Yoga & Fitness Trainers in ${state.name} | YogaPatha`}
+        description={state.meta_description || `Find certified yoga and fitness trainers in ${state.name}. Browse ${state.cities.length} cities including ${state.cities.slice(0, 3).map(c => c.name).join(', ')}. Book professional trainers near you.`}
+        keywords={state.meta_keywords || `yoga trainers ${state.name}, fitness trainers ${state.name}, yoga classes ${state.name}, personal trainers ${state.name}, ${cityNames}`}
         ogImage={state.image || '/logo.png'}
         canonicalUrl={pageUrl}
       />

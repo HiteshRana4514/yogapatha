@@ -37,7 +37,10 @@ function LocationManagement() {
     slug: '',
     image: '',
     display_order: 0,
-    is_active: true
+    is_active: true,
+    meta_title: '',
+    meta_description: '',
+    meta_keywords: ''
   })
 
   const [cityForm, setCityForm] = useState({
@@ -46,7 +49,10 @@ function LocationManagement() {
     name: '',
     slug: '',
     display_order: 0,
-    is_active: true
+    is_active: true,
+    meta_title: '',
+    meta_description: '',
+    meta_keywords: ''
   })
 
   useEffect(() => {
@@ -150,6 +156,9 @@ function LocationManagement() {
             image: imageUrl,
             display_order: stateForm.display_order,
             is_active: stateForm.is_active,
+            meta_title: stateForm.meta_title || null,
+            meta_description: stateForm.meta_description || null,
+            meta_keywords: stateForm.meta_keywords || null,
             updated_by: (await supabase.auth.getUser()).data.user?.id
           })
           .eq('id', stateForm.id)
@@ -167,6 +176,9 @@ function LocationManagement() {
             image: imageUrl,
             display_order: stateForm.display_order,
             is_active: stateForm.is_active,
+            meta_title: stateForm.meta_title || null,
+            meta_description: stateForm.meta_description || null,
+            meta_keywords: stateForm.meta_keywords || null,
             created_by: (await supabase.auth.getUser()).data.user?.id
           }])
 
@@ -202,6 +214,9 @@ function LocationManagement() {
             review_count: cityForm.review_count,
             whatsapp_number: cityForm.whatsapp_number,
             whatsapp_message: cityForm.whatsapp_message,
+            meta_title: cityForm.meta_title || null,
+            meta_description: cityForm.meta_description || null,
+            meta_keywords: cityForm.meta_keywords || null,
             updated_by: (await supabase.auth.getUser()).data.user?.id
           })
           .eq('id', cityForm.id)
@@ -213,6 +228,9 @@ function LocationManagement() {
         const { error } = await supabase
           .from('cities')
           .insert([{
+            id: cityForm.id,
+            state_id: cityForm.state_id,
+            name: cityForm.name,
             slug: cityForm.slug,
             display_order: cityForm.display_order,
             is_active: cityForm.is_active,
@@ -221,6 +239,9 @@ function LocationManagement() {
             review_count: cityForm.review_count,
             whatsapp_number: cityForm.whatsapp_number,
             whatsapp_message: cityForm.whatsapp_message,
+            meta_title: cityForm.meta_title || null,
+            meta_description: cityForm.meta_description || null,
+            meta_keywords: cityForm.meta_keywords || null,
             created_by: (await supabase.auth.getUser()).data.user?.id
           }])
 
@@ -336,7 +357,12 @@ function LocationManagement() {
   const openStateModal = (state = null) => {
     if (state) {
       setEditingState(state)
-      setStateForm(state)
+      setStateForm({
+        ...state,
+        meta_title: state.meta_title || '',
+        meta_description: state.meta_description || '',
+        meta_keywords: state.meta_keywords || ''
+      })
       setImagePreview(state.image || null)
       setImageFile(null)
     } else {
@@ -347,7 +373,10 @@ function LocationManagement() {
         slug: '',
         image: '',
         display_order: states.length,
-        is_active: true
+        is_active: true,
+        meta_title: '',
+        meta_description: '',
+        meta_keywords: ''
       })
       setImagePreview(null)
       setImageFile(null)
@@ -358,7 +387,12 @@ function LocationManagement() {
   const openCityModal = (stateId, city = null) => {
     if (city) {
       setEditingCity(city)
-      setCityForm(city)
+      setCityForm({
+        ...city,
+        meta_title: city.meta_title || '',
+        meta_description: city.meta_description || '',
+        meta_keywords: city.meta_keywords || ''
+      })
     } else {
       setEditingCity(null)
       const stateCities = getCitiesByState(stateId)
@@ -373,7 +407,10 @@ function LocationManagement() {
         session_count: 0,
         review_count: 0,
         whatsapp_number: '',
-        whatsapp_message: ''
+        whatsapp_message: '',
+        meta_title: '',
+        meta_description: '',
+        meta_keywords: ''
       })
     }
     setShowCityModal(true)
@@ -733,7 +770,26 @@ function LocationManagement() {
                 </label>
               </div>
 
-              <div className="flex gap-3 pt-4">
+              {/* SEO Meta Fields */}
+              <div className="pt-6 border-t border-gray-200 mt-6">
+                <h3 className="text-lg font-bold text-[#336b6e] mb-4">SEO Settings</h3>
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Meta Title</label>
+                    <input type="text" value={stateForm.meta_title} onChange={(e) => setStateForm({ ...stateForm, meta_title: e.target.value })} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#336b6e] focus:border-transparent" placeholder="SEO Title" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Meta Description</label>
+                    <textarea value={stateForm.meta_description} onChange={(e) => setStateForm({ ...stateForm, meta_description: e.target.value })} rows="2" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#336b6e] focus:border-transparent" placeholder="SEO Description" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Meta Keywords</label>
+                    <input type="text" value={stateForm.meta_keywords} onChange={(e) => setStateForm({ ...stateForm, meta_keywords: e.target.value })} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#336b6e] focus:border-transparent" placeholder="Keywords" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex gap-3 pt-4 mt-6 border-t border-gray-200">
                 <button
                   type="submit"
                   disabled={uploadingImage}
@@ -924,7 +980,26 @@ function LocationManagement() {
                 </label>
               </div>
 
-              <div className="flex gap-3 pt-4">
+              {/* SEO Meta Fields */}
+              <div className="pt-6 border-t border-gray-200 mt-6">
+                <h3 className="text-lg font-bold text-[#336b6e] mb-4">SEO Settings</h3>
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Meta Title</label>
+                    <input type="text" value={cityForm.meta_title} onChange={(e) => setCityForm({ ...cityForm, meta_title: e.target.value })} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#336b6e] focus:border-transparent" placeholder="SEO Title" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Meta Description</label>
+                    <textarea value={cityForm.meta_description} onChange={(e) => setCityForm({ ...cityForm, meta_description: e.target.value })} rows="2" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#336b6e] focus:border-transparent" placeholder="SEO Description" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Meta Keywords</label>
+                    <input type="text" value={cityForm.meta_keywords} onChange={(e) => setCityForm({ ...cityForm, meta_keywords: e.target.value })} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#336b6e] focus:border-transparent" placeholder="Keywords" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex gap-3 pt-4 mt-6 border-t border-gray-200">
                 <button
                   type="submit"
                   className="flex-1 flex items-center justify-center gap-2 bg-[#336b6e] text-white px-6 py-3 rounded-lg hover:bg-[#2a5557] transition-colors"

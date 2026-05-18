@@ -79,8 +79,9 @@ function ServiceDetailPage() {
   return (
     <>
       <SEO
-        title={`${service.title} - Professional Yoga Services`}
-        description={service.description?.substring(0, 160)}
+        title={service.meta_title || `${service.title} - Professional Yoga Services`}
+        description={service.meta_description || service.description?.substring(0, 160)}
+        keywords={service.meta_keywords || service.category || 'yoga service, yoga training'}
         ogImage={service.image_url}
         ogType="website"
         canonicalUrl={`https://www.yogapatha.in/service/${serviceId}`}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { ArrowRight, Sparkles, Star, Zap, ChevronLeft, ChevronRight } from 'lucide-react'
 import heroBanner_1 from '/images/heroBanner.jpg'
 import heroBanner_2 from '/images/heroBanner_1.jpg'
@@ -168,6 +168,21 @@ function HeroSection() {
           </button>
         </div>
 
+        {/* Trainer Login/Signup Button */}
+        <div className={`transform transition-all duration-1000 ease-out mt-4 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+          }`} style={{ transitionDelay: '0.55s' }}>
+          <Link
+            to="/trainer_login"
+            className="group inline-flex items-center gap-2 border-2 border-[#336b6e] text-[#336b6e] bg-white/70 backdrop-blur-sm px-6 py-3 rounded-full font-semibold text-base hover:bg-[#336b6e] hover:text-[#bb9f58] transition-all duration-300 hover:scale-105 hover:shadow-xl"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+            Trainer Login / Signup
+          </Link>
+        </div>
+
         {/* Scroll Indicator */}
         <div className={`absolute bottom-8 hidden md:block left-1/2 transform -translate-x-1/2 transition-all duration-1000 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`} style={{ transitionDelay: '0.6s' }}>
@@ -180,7 +195,7 @@ function HeroSection() {
         </div>
 
         {/* Stats or Features Preview */}
-        <div className={`absolute md:bottom-40 bottom-20 left-0 right-0 transform transition-all duration-1000 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+        <div className={`absolute md:bottom-35 bottom-15 left-0 right-0 transform transition-all duration-1000 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`} style={{ transitionDelay: '0.8s' }}>
           <div className="flex justify-center items-center gap-8 md:gap-16 text-[#336b6e] opacity-70">
             {(heroContent.stats || []).length > 0 ? (

@@ -79,9 +79,9 @@ function YTTCDetailPage() {
     return (
         <>
             <SEO
-                title={`${course.title} | YTTC Yoga Teacher Training`}
-                description={course.description.substring(0, 160)}
-                keywords={`yttc, ${course.title}, yoga teacher training, certified yoga instructor, yoga alliance`}
+                title={course.meta_title || `${course.title} | YTTC Yoga Teacher Training`}
+                description={course.meta_description || course.description.substring(0, 160)}
+                keywords={course.meta_keywords || `yttc, ${course.title}, yoga teacher training, certified yoga instructor, yoga alliance`}
                 ogImage={course.image_url}
                 canonicalUrl={`https://www.yogapatha.in/yttc/${slug}`}
                 ogType="product"
